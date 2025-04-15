@@ -7,22 +7,28 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Select view {events OR volunteers}: ");
-        string mode = Console.ReadLine();
         string command = "none";
-        if (mode=="volunteers") {
-            do {
-                Console.WriteLine("Volunteer List: ");
-                string volunteerList = File.ReadAllText("volunteer-data.txt");
-                Console.WriteLine(volunteerList);
-                Console.WriteLine("Select {new OR main menu}");
-                command = Console.ReadLine();
-                if (command=="new") {
-                    Console.WriteLine("Enter volunteer name: ");
-                    string newName = Console.ReadLine();
-                    File.AppendAllText("volunteer-data.txt",newName+Environment.NewLine);
-                }
-            } while (command != "main menu");
+        Console.WriteLine("Events: ");
+        string eventNames = File.ReadAllText("event-names.txt");
+        Console.WriteLine(eventNames);
+        Console.WriteLine("Enter {new OR exit or [the event name]}");
+        command = Console.ReadLine();
+        if (command=="new") {
+            Console.WriteLine("Enter event name: ");
+            string newName = Console.ReadLine();
+                File.AppendAllText("event-names.txt",newName+Environment.NewLine);
+        }
+        string[] eventList = File.ReadAllLines("event-names.txt");
+        foreach (string event in eventList) {
+            if (command==event) {
+                
+            }
+        }
+    }
+    public EventView() {
+        string[] lines = File.ReadAllLines("event-data.csv");
+        foreach (string line in lines) {
+            string[] elements = line.Split(',');
         }
     }
 }
