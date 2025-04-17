@@ -73,7 +73,7 @@ class Program
             } else if (eventCommand=="add item") {
                 Console.WriteLine("Enter item name: ");
                 itemName = Console.ReadLine();
-                itemData = eventName + ',' + "Item" + ',' + itemName + ',' + "None";
+                itemData = eventName + ',' + "Item" + ',' + itemName + ',' + "No";
                 File.AppendAllText("event-data.csv",itemData+Environment.NewLine);
             }
         } while (eventCommand != "exit");
