@@ -1,34 +1,37 @@
-﻿namespace CommunityEvents;
- 
-using System;
+﻿using System;
 using System.IO;
 using System.Collections.Generic;
+
+namespace CommunityEvents;
+ 
 
 class Program
 {
     static void Main(string[] args)
     {
         string command = "none";
-        Console.WriteLine("Events: ");
-        string eventNames = File.ReadAllText("event-names.txt");
-        Console.WriteLine(eventNames);
-        Console.WriteLine("Enter {new OR exit or [the event name]}");
-        command = Console.ReadLine();
-        if (command=="new") {
-            Console.WriteLine("Enter event name: ");
-            string newName = Console.ReadLine();
+        do {
+            Console.WriteLine("Events: ");
+            string eventNames = File.ReadAllText("event-names.txt");
+            Console.WriteLine(eventNames);
+            Console.WriteLine("Enter {new OR exit OR [the event name]}");
+            command = Console.ReadLine();
+            if (command=="new") {
+                Console.WriteLine("Enter event name: ");
+                string newName = Console.ReadLine();
                 File.AppendAllText("event-names.txt",newName+Environment.NewLine);
-        }
-        string[] eventList = File.ReadAllLines("event-names.txt");
-        foreach (string event in eventList) {
-            if (command==event) {
-                EventView(event);
-                break;
-                
             }
-        }
+            string[] eventList = File.ReadAllLines("event-names.txt");
+            foreach (string Event in eventList) {
+                if (command==Event) {
+                    EventView(Event);
+                    break;
+                
+                }
+            }
+        } while (command != "exit");
     }
-    public EventView(string eventName) {
+    public static void EventView(string eventName) {
         string[] lines = File.ReadAllLines("event-data.csv");
         List<string> volunteers = new List<string>();
         List<string> items = new List<string>();
@@ -42,7 +45,7 @@ class Program
                 }
             }
         }
-        Console.WriteLine(eventName + "Information:");
+        Console.WriteLine(eventName + " Information:");
         Console.WriteLine("Volunteers:");
         foreach(string volunteer in volunteers) {
             Console.WriteLine(volunteer);
@@ -50,5 +53,6 @@ class Program
         Console.WriteLine("Items:");
         foreach(string item in items) {
             Console.WriteLine(item);
+        }
     }
 }
