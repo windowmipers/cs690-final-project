@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommunityEvents.Tests", "CommunityEvents.Tests\CommunityEvents.Tests.csproj", "{B05C84E3-9164-4558-9338-4D0360598716}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommunityEvents", "CommunityEvents\CommunityEvents.csproj", "{1ABDCFDA-1941-412E-B104-E9C49B2BB788}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +14,15 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B05C84E3-9164-4558-9338-4D0360598716}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B05C84E3-9164-4558-9338-4D0360598716}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B05C84E3-9164-4558-9338-4D0360598716}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B05C84E3-9164-4558-9338-4D0360598716}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ABDCFDA-1941-412E-B104-E9C49B2BB788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ABDCFDA-1941-412E-B104-E9C49B2BB788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ABDCFDA-1941-412E-B104-E9C49B2BB788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ABDCFDA-1941-412E-B104-E9C49B2BB788}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

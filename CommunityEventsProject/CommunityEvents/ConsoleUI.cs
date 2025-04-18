@@ -48,25 +48,29 @@ public class ConsoleUI {
     public static void EventSelect(string eventName) {
         string eventCommand = "none";
         string volunteerName = "none";
-        string volunteerData = "none";
         string itemName = "none";
-        string itemData = "none";
         do {
             EventView(eventName);
             eventCommand = AskForInput("Enter {add volunteer OR add item OR exit}: ");
             if (eventCommand=="add volunteer") {
                 volunteerName = AskForInput("Enter volunteer name: ");
-                volunteerData = eventName + ',' + "Volunteer" + ',' + volunteerName + ',' + "None";
-                File.AppendAllText("event-data.csv",volunteerData+Environment.NewLine);
+                AddVolunteer(eventName,volunteerName);
             } else if (eventCommand=="add item") {
                 itemName = AskForInput("Enter item name: ");
-                itemData = eventName + ',' + "Item" + ',' + itemName + ',' + "No";
-                File.AppendAllText("event-data.csv",itemData+Environment.NewLine);
+                AddItem(eventName,itemName);
             }
         } while (eventCommand != "exit");
     }
     public static string AskForInput(string message) {
         Console.Write(message);
         return Console.ReadLine();
+    }
+    public static void AddVolunteer(string eventName,string volunteerName) {
+        string volunteerData = eventName + ',' + "Volunteer" + ',' + volunteerName + ',' + "None";
+        File.AppendAllText("event-data.csv",volunteerData+Environment.NewLine);
+    }
+    public static void AddItem(string eventName,string itemName) {
+        string itemData = eventName + ',' + "Item" + ',' + itemName + ',' + "No";
+        File.AppendAllText("event-data.csv",itemData+Environment.NewLine);
     }
 }
