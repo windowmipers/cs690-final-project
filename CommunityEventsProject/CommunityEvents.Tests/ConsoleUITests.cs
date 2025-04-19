@@ -9,8 +9,10 @@ public class ConsoleUITests
     public void TestAddVolunteer()
     {
         File.Create("event-data.csv").Close();
-        consoleUI.AddVolunteer("Trash Cleanup", "John Smith");
-        string volunteerLine = eventName + ',' + "Volunteer" + ',' + volunteerName + ',' + "None";
+        string eventName = "Trash Cleanup";
+        string volunteerName = "John Smith";
+        ConsoleUI.AddVolunteer(eventName, volunteerName);
+        string volunteerLine = eventName + ',' + "Volunteer" + ',' + volunteerName + ',' + "None\n";
         var contentFromFile = File.ReadAllText("event-data.csv");
         Assert.Equal(volunteerLine,contentFromFile);
     }
@@ -18,8 +20,10 @@ public class ConsoleUITests
     public void TestAddItem()
     {
         File.Create("event-data.csv").Close();
-        consoleUI.AddItem("Trash Cleanup", "Garbage Bags");
-        string itemLine = eventName + ',' + "Item" + ',' + itemName + ',' + "No";
+        string eventName = "Trash Cleanup";
+        string itemName = "Garbage Bags";
+        ConsoleUI.AddItem(eventName, itemName);
+        string itemLine = eventName + ',' + "Item" + ',' + itemName + ',' + "No\n";
         var contentFromFile = File.ReadAllText("event-data.csv");
         Assert.Equal(itemLine,contentFromFile);
     }
