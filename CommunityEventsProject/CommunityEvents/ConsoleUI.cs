@@ -73,4 +73,19 @@ public class ConsoleUI {
         string itemData = eventName + ',' + "Item" + ',' + itemName + ',' + "No";
         File.AppendAllText("event-data.csv",itemData+Environment.NewLine);
     }
+    public static void DeleteEntity(string eventName,string entityName) {
+        string[] lines = File.ReadAllLines("event-data.csv");
+        File.Create("event-data.csv").Close();
+        foreach (string line in lines) {
+            string[] elements = line.Split(',');
+            if (elements[0]!=eventName || elements[2]!=entityName) {
+                File.AppendAllText("event-data.csv",line+Environment.NewLine);
+            }
+        }
+    }
+    public static void Update(string eventName,string entityType,string entityName,string status) {
+        DeleteEntity(eventName,volunteerName);
+        string newData = eventName + ',' + entityType + ',' + entityName + ',' + status;
+        File.AppendAllText("event-data.csv",newData+Environment.NewLine);
+    }
 }
